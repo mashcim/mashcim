@@ -2,7 +2,6 @@
   <img src="https://komarev.com/ghpvc/?username=mashcim&color=ff69b4&style=for-the-badge" alt="Visitor Count"/>
 </div>
 
-
 # 👋 Hi, I'm Zeynep Sude
 
 ## 🔒 A Passionate Cybersecurity Enthusiast & Software Developer
@@ -97,6 +96,7 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical&hide_border=true&bg_color=1a1a2e&color=f39c12&line=f39c12&point=ffffff&branch=main"/>
 </div>
+
 ---
 
 *"In the world of cybersecurity, the best defense is a good offense."*
