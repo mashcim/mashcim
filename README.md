@@ -2,6 +2,7 @@
   <img src="https://komarev.com/ghpvc/?username=mashcim&color=ff69b4&style=for-the-badge" alt="Visitor Count"/>
 </div>
 
+
 # 👋 Hi, I'm Zeynep Sude
 
 ## 🔒 A Passionate Cybersecurity Enthusiast & Software Developer
@@ -66,10 +67,11 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ---
 
-## 📊 GitHub Stats
+## 📊 GitHub Analytics
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mashcim&show_icons=true&theme=radical" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mashcim&show_icons=true&theme=radical&include_all_commits=true&count_private=true&bg_color=1a1a2e&title_color=f39c12&text_color=ffffff&icon_color=f39c12"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mashcim&layout=compact&langs_count=8&theme=radical&bg_color=1a1a2e&title_color=f39c12&text_color=ffffff"/>
 </div>
 
 ---
@@ -77,7 +79,15 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 ## 🔥 GitHub Streak
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mashcim&theme=radical" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mashcim&theme=radical&hide_border=true&background=1a1a2e&stroke=f39c12&ring=f39c12&fire=f39c12&currStreakNum=ffffff&sideNums=ffffff&sideLabels=ffffff&dates=ffffff"/>
+</div>
+
+---
+
+## 🏆 Achievements
+
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=mashcim&theme=radical&no-frame=true&margin-w=15&background=1a1a2e&title=f39c12&text=ffffff&icon=f39c12"/>
 </div>
 
 ---
@@ -85,7 +95,7 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 ## 📈 Activity Graph
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical&hide_border=true&bg_color=1a1a2e&color=f39c12&line=f39c12&point=ffffff&branch=main"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical&hide_border=true&bg_color=1a1a2e&color=f39c12&line=f39c12&point=ffffff"/>
 </div>
 
 ---
