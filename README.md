@@ -89,9 +89,9 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ## 🏆 Achievements
 
-![CTF](https://img.shields.io/badge/CTF-Player-f39c12?style=for-the-badge)
-![Security](https://img.shields.io/badge/Ethical-Hacker-f39c12?style=for-the-badge)
-![Learning](https://img.shields.io/badge/Always-Learning-f39c12?style=for-the-badge)
+![CTF](https://img.shields.io/badge/CTF-Player-ff69b4?style=for-the-badge&logo=tryhackme&logoColor=black)
+![Security](https://img.shields.io/badge/Ethical-Hacker-ff69b4?style=for-the-badge&logo=protonvpn&logoColor=black)
+![Learning](https://img.shields.io/badge/Always-Learning-ff69b4?style=for-the-badge&logo=bookstack&logoColor=black)
 <!-- <div align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=mashcim&theme=radical&no-frame=true"/>
 </div> -->
