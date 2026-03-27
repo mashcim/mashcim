@@ -85,7 +85,7 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 ## 📈 Activity Graph
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical&hide_border=true&bg_color=1a1a2e&color=f39c12&line=f39c12&point=ffffff&branch=main"/>
 </div>
 
 ---
