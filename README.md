@@ -67,6 +67,14 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ---
 
+## 🔥 GitHub Streak
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mashcim&theme=radical&hide_border=true&background=1a1a2e&stroke=f39c12&ring=f39c12&fire=f39c12&currStreakNum=ffffff&sideNums=ffffff&sideLabels=ffffff&dates=ffffff"/>
+</div>
+
+---
+
 ## 📊 GitHub Analytics
 
 ![Status](https://img.shields.io/badge/Status-Actively%20Learning-f39c12?style=for-the-badge)
@@ -76,14 +84,6 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Commits&font=lobster"/>
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Top+Languages&font=lobster"/>
 </div> -->
-
----
-
-## 🔥 GitHub Streak
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mashcim&theme=radical&hide_border=true&background=1a1a2e&stroke=f39c12&ring=f39c12&fire=f39c12&currStreakNum=ffffff&sideNums=ffffff&sideLabels=ffffff&dates=ffffff"/>
-</div>
 
 ---
 
