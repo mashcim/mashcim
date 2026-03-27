@@ -2,10 +2,9 @@
   <img src="https://komarev.com/ghpvc/?username=mashcim&color=ff69b4&style=for-the-badge" alt="Visitor Count"/>
 </div>
 
+<h1 align="center">✨ Hi, I'm Zeynep Sude</h1>
 
-# 👋 Hi, I'm Zeynep Sude
-
-## 🔒 A Passionate Cybersecurity Enthusiast & Software Developer
+<h3 align="center">🔒 A Passionate Cybersecurity Enthusiast & Software Developer</h3>
 
 Welcome to my GitHub profile! I'm a dedicated software development student with a strong passion for **cybersecurity** and ethical hacking. I love exploring security vulnerabilities, developing secure applications, and constantly expanding my knowledge in the ever-evolving world of digital security and technology.
 
