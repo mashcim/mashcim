@@ -77,9 +77,9 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ## 📊 GitHub Analytics
 
-![Status](https://img.shields.io/badge/Status-Actively%20Learning-f39c12?style=for-the-badge)
-![Focus](https://img.shields.io/badge/Focus-Cybersecurity-f39c12?style=for-the-badge)
-![Experience](https://img.shields.io/badge/Level-Junior%20Developer-f39c12?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Actively%20Learning-ff69b4?style=for-the-badge&logo=github&logoColor=black)
+![Focus](https://img.shields.io/badge/Focus-Cybersecurity-ff69b4?style=for-the-badge&logo=hackthebox&logoColor=black)
+![Experience](https://img.shields.io/badge/Level-Junior%20Dev-ff69b4?style=for-the-badge&logo=code&logoColor=black)
 <!-- <div align="center">
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Commits&font=lobster"/>
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Top+Languages&font=lobster"/>
