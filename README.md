@@ -69,11 +69,11 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ## 📊 GitHub Analytics
 
-<div align="center">
+https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=mashcim&show_icons=true&theme=radical
+<!-- <div align="center">
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Commits&font=lobster"/>
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Top+Languages&font=lobster"/>
-</div>
-
+</div> -->
 
 ---
 
