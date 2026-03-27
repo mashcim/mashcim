@@ -66,11 +66,10 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ---
 
-## 📊 GitHub Analytics
+## 📊 GitHub Stats
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mashcim&show_icons=true&theme=radical&include_all_commits=true&count_private=true&branch=main"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mashcim&layout=compact&langs_count=8&theme=radical&branch=main"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mashcim&show_icons=true&theme=radical" />
 </div>
 
 ---
@@ -78,15 +77,7 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 ## 🔥 GitHub Streak
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mashcim&theme=radical&hide_border=true&background=1a1a2e&stroke=f39c12&ring=f39c12&fire=f39c12&currStreakNum=ffffff&sideNums=ffffff&sideLabels=ffffff&dates=ffffff"/>
-</div>
-
----
-
-## 🏆 Achievements
-
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=mashcim&theme=radical&no-frame=true&margin-w=15&background=1a1a2e&title=f39c12&text=ffffff&icon=f39c12"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mashcim&theme=radical" />
 </div>
 
 ---
@@ -94,7 +85,7 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 ## 📈 Activity Graph
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical&hide_border=true&bg_color=1a1a2e&color=f39c12&line=f39c12&point=ffffff&branch=main"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical" />
 </div>
 
 ---
