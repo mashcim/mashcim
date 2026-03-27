@@ -69,7 +69,10 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ## 📊 GitHub Analytics
 
-https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=mashcim&show_icons=true&theme=radical
+<div align="center">
+  <img height="180em" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=mashcim&show_icons=true&theme=radical"/>
+  <img height="180em" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=mashcim&layout=compact&theme=radical"/>
+</div>
 <!-- <div align="center">
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Commits&font=lobster"/>
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Top+Languages&font=lobster"/>
@@ -88,8 +91,11 @@ https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=mas
 ## 🏆 Achievements
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=mashcim&theme=radical&no-frame=true"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=mashcim&theme=onestar&no-frame=true"/>
 </div>
+<!-- <div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=mashcim&theme=radical&no-frame=true"/>
+</div> -->
 
 ---
 
