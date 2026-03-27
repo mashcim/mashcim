@@ -69,10 +69,9 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ## 📊 GitHub Analytics
 
-<div align="center">
-  <img height="180em" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=mashcim&show_icons=true&theme=radical"/>
-  <img height="180em" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=mashcim&layout=compact&theme=radical"/>
-</div>
+![Status](https://img.shields.io/badge/Status-Actively%20Learning-f39c12?style=for-the-badge)
+![Focus](https://img.shields.io/badge/Focus-Cybersecurity-f39c12?style=for-the-badge)
+![Experience](https://img.shields.io/badge/Level-Junior%20Developer-f39c12?style=for-the-badge)
 <!-- <div align="center">
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Commits&font=lobster"/>
   <img height="180em" src="https://fakeimg.pl/400x180/1a1a2e/f39c12/?text=Top+Languages&font=lobster"/>
@@ -90,9 +89,9 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 
 ## 🏆 Achievements
 
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=mashcim&theme=onestar&no-frame=true"/>
-</div>
+![CTF](https://img.shields.io/badge/CTF-Player-f39c12?style=for-the-badge)
+![Security](https://img.shields.io/badge/Ethical-Hacker-f39c12?style=for-the-badge)
+![Learning](https://img.shields.io/badge/Always-Learning-f39c12?style=for-the-badge)
 <!-- <div align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=mashcim&theme=radical&no-frame=true"/>
 </div> -->
