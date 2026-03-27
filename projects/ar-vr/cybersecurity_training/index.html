@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 AR/VR Cybersecurity Training Simulator</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .ar-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .hud {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+            color: white;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .hud-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .score-display {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .score-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .score-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #10b981;
+        }
+
+        .score-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .control-btn.active {
+            background: #10b981;
+            color: white;
+        }
+
+        .mission-panel {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+            max-width: 300px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .mission-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .mission-description {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .mission-progress {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .mission-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #667eea);
+            transition: width 0.3s ease;
+        }
+
+        .threat-indicator {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            background: rgba(239, 68, 68, 0.9);
+            padding: 15px;
+            border-radius: 12px;
+            color: white;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.9; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            color: white;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .loading-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loading-progress-bar {
+            height: 100%;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .vr-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .network-visual {
+            position: absolute;
+            bottom: 100px;
+            right: 20px;
+            width: 200px;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            padding: 15px;
+            z-index: 1000;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: nodePulse 3s infinite;
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        .network-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #10b981, transparent);
+            animation: dataFlow 2s infinite;
+        }
+
+        @keyframes dataFlow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Initializing Cybersecurity Training...</div>
+        <div class="loading-progress">
+            <div class="loading-progress-bar" id="loadingProgress" style="width: 0%"></div>
+        </div>
+    </div>
+
+    
+    <div class="ar-container hidden" id="arContainer">
+        
+        <div class="hud">
+            <div class="hud-content">
+                <div class="score-display">
+                    <div class="score-item">
+                        <div class="score-value" id="scoreValue">0</div>
+                        <div class="score-label">SCORE</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="score-value" id="levelValue">1</div>
+                        <div class="score-label">LEVEL</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="score-value" id="threatsValue">0</div>
+                        <div class="score-label">THREATS</div>
+                    </div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" id="timeValue">00:00</div>
+                    <div class="score-label">TIME</div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="mission-panel">
+            <div class="mission-title" id="missionTitle">Network Reconnaissance</div>
+            <div class="mission-description" id="missionDescription">
+                Scan the network for vulnerable nodes and identify potential security threats. Use your AR device to visualize network traffic patterns.
+            </div>
+            <div class="mission-progress">
+                <div class="mission-progress-bar" id="missionProgress" style="width: 0%"></div>
+            </div>
+        </div>
+
+        
+        <div class="network-visual" id="networkVisual">
+            <canvas id="networkCanvas" width="200" height="150"></canvas>
+        </div>
+
+        
+        <div class="threat-indicator hidden" id="threatIndicator">
+            <strong>⚠️ THREAT DETECTED</strong>
+            <p id="threatDescription">Malicious activity detected on node 192.168.1.100</p>
+        </div>
+
+        
+        <div class="controls">
+            <button class="control-btn" id="scanBtn" onclick="startScan()">🔍 Scan</button>
+            <button class="control-btn" id="analyzeBtn" onclick="analyzeThreat()">🔬 Analyze</button>
+            <button class="control-btn" id="defendBtn" onclick="defendNetwork()">🛡️ Defend</button>
+            <button class="control-btn" id="vrBtn" onclick="toggleVR()">🥽 VR Mode</button>
+        </div>
+
+        
+        <div class="vr-mode-toggle">
+            <button class="control-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+        </div>
+
+        
+        <a-scene 
+            id="arScene"
+            embedded 
+            arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+            vr-mode-ui="enabled: false">
+            
+            
+            <a-camera gps-camera rotation-reader></a-camera>
+            
+            
+            <a-entity id="networkNodes">
+                
+            </a-entity>
+            
+            
+            <a-entity id="threatIndicators">
+                
+            </a-entity>
+            
+            
+            <a-entity id="securityTools">
+                
+            </a-entity>
+            
+            
+            <a-plane 
+                position="0 0 0" 
+                rotation="-90 0 0" 
+                width="100" 
+                height="100" 
+                color="#f0f0f0"
+                shadow>
+            </a-plane>
+            
+            
+            <a-light type="ambient" color="#404040"></a-light>
+            <a-light type="directional" position="0 1 1" intensity="0.5" color="#ffffff"></a-light>
+        </a-scene>
+    </div>
+
+    <script>
+
+        let gameState = {
+            score: 0,
+            level: 1,
+            threats: 0,
+            time: 0,
+            missionProgress: 0,
+            isScanning: false,
+            isAnalyzing: false,
+            isDefending: false,
+            vrMode: false,
+            networkNodes: [],
+            threats: [],
+            currentMission: {
+                title: "Network Reconnaissance",
+                description: "Scan the network for vulnerable nodes and identify potential security threats.",
+                objectives: ["Scan network nodes", "Identify vulnerabilities", "Implement defenses"]
+            }
+        };
+
+
+        class NetworkVisualizer {
+            constructor() {
+                this.canvas = document.getElementById('networkCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.nodes = [];
+                this.connections = [];
+                this.animationFrame = 0;
+            }
+
+            init() {
+
+                for (let i = 0; i < 8; i++) {
+                    this.nodes.push({
+                        x: Math.random() * 180 + 10,
+                        y: Math.random() * 130 + 10,
+                        radius: Math.random() * 3 + 2,
+                        color: '#10b981',
+                        pulsePhase: Math.random() * Math.PI * 2,
+                        isThreat: Math.random() > 0.7
+                    });
+                }
+
+
+                for (let i = 0; i < this.nodes.length; i++) {
+                    for (let j = i + 1; j < this.nodes.length; j++) {
+                        if (Math.random() > 0.6) {
+                            this.connections.push({
+                                from: i,
+                                to: j,
+                                dataFlow: 0
+                            });
+                        }
+                    }
+                }
+            }
+
+            update() {
+                this.animationFrame++;
+                
+
+                this.nodes.forEach(node => {
+                    node.radius = (Math.sin(this.animationFrame * 0.05 + node.pulsePhase) + 1) * 2 + 3;
+                    
+                    if (node.isThreat) {
+                        node.color = `hsl(${(this.animationFrame * 2) % 360}, 70%, 50%)`;
+                    }
+                });
+
+
+                this.connections.forEach(conn => {
+                    conn.dataFlow = (conn.dataFlow + 0.02) % 1;
+                });
+            }
+
+            draw() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+
+                this.connections.forEach(conn => {
+                    const from = this.nodes[conn.from];
+                    const to = this.nodes[conn.to];
+                    
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(from.x, from.y);
+                    this.ctx.lineTo(to.x, to.y);
+                    this.ctx.strokeStyle = 'rgba(16, 185, 129, 0.3)';
+                    this.ctx.lineWidth = 1;
+                    this.ctx.stroke();
+
+
+                    const flowX = from.x + (to.x - from.x) * conn.dataFlow;
+                    const flowY = from.y + (to.y - from.y) * conn.dataFlow;
+                    
+                    this.ctx.beginPath();
+                    this.ctx.arc(flowX, flowY, 2, 0, Math.PI * 2);
+                    this.ctx.fillStyle = '#10b981';
+                    this.ctx.fill();
+                });
+
+
+                this.nodes.forEach(node => {
+                    this.ctx.beginPath();
+                    this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = node.color;
+                    this.ctx.fill();
+                    
+                    if (node.isThreat) {
+                        this.ctx.strokeStyle = '#ef4444';
+                        this.ctx.lineWidth = 2;
+                        this.ctx.stroke();
+                    }
+                });
+            }
+
+            animate() {
+                this.update();
+                this.draw();
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+
+        const networkViz = new NetworkVisualizer();
+
+
+        function simulateLoading() {
+            let progress = 0;
+            const loadingInterval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(loadingInterval);
+                    setTimeout(() => {
+                        document.getElementById('loadingScreen').classList.add('hidden');
+                        document.getElementById('arContainer').classList.remove('hidden');
+                        initializeGame();
+                    }, 500);
+                }
+                document.getElementById('loadingProgress').style.width = progress + '%';
+            }, 200);
+        }
+
+
+        function initializeGame() {
+            networkViz.init();
+            networkViz.animate();
+            startGameLoop();
+            generateNetworkNodes();
+            updateDisplay();
+        }
+
+
+        function startGameLoop() {
+            setInterval(() => {
+                gameState.time++;
+                updateDisplay();
+                checkMissionProgress();
+                
+
+                if (Math.random() > 0.98) {
+                    generateThreat();
+                }
+            }, 1000);
+        }
+
+
+        function generateNetworkNodes() {
+            const nodesContainer = document.getElementById('networkNodes');
+            
+            for (let i = 0; i < 10; i++) {
+                const node = document.createElement('a-sphere');
+                node.setAttribute('position', `${(Math.random() - 0.5) * 20} ${Math.random() * 5 + 1} ${-Math.random() * 20 - 5}`);
+                node.setAttribute('radius', '0.5');
+                node.setAttribute('color', Math.random() > 0.7 ? '#ef4444' : '#10b981');
+                node.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 10000');
+                nodesContainer.appendChild(node);
+                
+                gameState.networkNodes.push({
+                    element: node,
+                    isVulnerable: Math.random() > 0.7,
+                    position: node.getAttribute('position')
+                });
+            }
+        }
+
+
+        function generateThreat() {
+            gameState.threats++;
+            const threatIndicator = document.getElementById('threatIndicator');
+            const threatDescriptions = [
+                "Malicious activity detected on node 192.168.1.100",
+                "Suspicious network traffic pattern identified",
+                "Unauthorized access attempt blocked",
+                "Potential DDoS attack detected",
+                "Malware signature found in network stream"
+            ];
+            
+            document.getElementById('threatDescription').textContent = 
+                threatDescriptions[Math.floor(Math.random() * threatDescriptions.length)];
+            
+            threatIndicator.classList.remove('hidden');
+            
+            setTimeout(() => {
+                threatIndicator.classList.add('hidden');
+            }, 3000);
+            
+            updateDisplay();
+        }
+
+
+        function startScan() {
+            if (gameState.isScanning) return;
+            
+            gameState.isScanning = true;
+            document.getElementById('scanBtn').classList.add('active');
+            
+
+            setTimeout(() => {
+                gameState.score += 10;
+                gameState.missionProgress += 20;
+                gameState.isScanning = false;
+                document.getElementById('scanBtn').classList.remove('active');
+                updateDisplay();
+                
+
+                showNotification('Scan Complete', 'Found 3 vulnerable nodes', 'success');
+            }, 2000);
+        }
+
+        function analyzeThreat() {
+            if (gameState.isAnalyzing) return;
+            
+            gameState.isAnalyzing = true;
+            document.getElementById('analyzeBtn').classList.add('active');
+            
+            setTimeout(() => {
+                gameState.score += 15;
+                gameState.missionProgress += 30;
+                gameState.isAnalyzing = false;
+                document.getElementById('analyzeBtn').classList.remove('active');
+                updateDisplay();
+                
+                showNotification('Analysis Complete', 'Threat classification: Medium Risk', 'warning');
+            }, 3000);
+        }
+
+        function defendNetwork() {
+            if (gameState.isDefending) return;
+            
+            gameState.isDefending = true;
+            document.getElementById('defendBtn').classList.add('active');
+            
+            setTimeout(() => {
+                gameState.score += 25;
+                gameState.missionProgress += 50;
+                gameState.isDefending = false;
+                document.getElementById('defendBtn').classList.remove('active');
+                updateDisplay();
+                
+                showNotification('Defense Active', 'Network security enhanced', 'success');
+            }, 2500);
+        }
+
+        function toggleVR() {
+            gameState.vrMode = !gameState.vrMode;
+            const scene = document.getElementById('arScene');
+            
+            if (gameState.vrMode) {
+                scene.enterVR();
+                document.getElementById('vrBtn').textContent = '📱 AR Mode';
+            } else {
+                scene.exitVR();
+                document.getElementById('vrBtn').textContent = '🥽 VR Mode';
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+
+        function checkMissionProgress() {
+            if (gameState.missionProgress >= 100) {
+                completeMission();
+            }
+        }
+
+        function completeMission() {
+            gameState.score += 100;
+            gameState.level++;
+            gameState.missionProgress = 0;
+            
+            showNotification('Mission Complete!', `Level ${gameState.level} unlocked`, 'success');
+            
+
+            const missions = [
+                { title: "Network Reconnaissance", description: "Scan the network for vulnerable nodes." },
+                { title: "Threat Analysis", description: "Analyze and classify security threats." },
+                { title: "Defense Implementation", description: "Implement network defenses." },
+                { title: "Penetration Testing", description: "Test network security measures." },
+                { title: "Incident Response", description: "Respond to security incidents." }
+            ];
+            
+            const mission = missions[gameState.level % missions.length];
+            gameState.currentMission = mission;
+            
+            document.getElementById('missionTitle').textContent = mission.title;
+            document.getElementById('missionDescription').textContent = mission.description;
+            
+            updateDisplay();
+        }
+
+
+        function updateDisplay() {
+            document.getElementById('scoreValue').textContent = gameState.score;
+            document.getElementById('levelValue').textContent = gameState.level;
+            document.getElementById('threatsValue').textContent = gameState.threats;
+            
+            const minutes = Math.floor(gameState.time / 60);
+            const seconds = gameState.time % 60;
+            document.getElementById('timeValue').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            document.getElementById('missionProgress').style.width = gameState.missionProgress + '%';
+        }
+
+
+        function showNotification(title, message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: ${type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : '#3b82f6'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 2000;
+                animation: slideIn 0.3s ease-out;
+            `;
+            
+            notification.innerHTML = `
+                <strong>${title}</strong><br>
+                <small>${message}</small>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+
+        window.addEventListener('load', () => {
+            simulateLoading();
+        });
+
+
+        window.addEventListener('resize', () => {
+
+            const container = document.getElementById('networkVisual');
+            if (container) {
+
+            }
+        });
+    </script>
+</body>
+</html>
