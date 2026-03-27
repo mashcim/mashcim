@@ -70,8 +70,8 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 ## 📊 GitHub Analytics
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mashcim&show_icons=true&theme=radical&include_all_commits=true&count_private=true&bg_color=1a1a2e&title_color=f39c12&text_color=ffffff&icon_color=f39c12"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mashcim&layout=compact&langs_count=8&theme=radical&bg_color=1a1a2e&title_color=f39c12&text_color=ffffff"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mashcim&show_icons=true&theme=radical&include_all_commits=true&count_private=true&branch=main"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mashcim&layout=compact&langs_count=8&theme=radical&branch=main"/>
 </div>
 
 ---
@@ -95,9 +95,8 @@ Welcome to my GitHub profile! I'm a dedicated software development student with 
 ## 📈 Activity Graph
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical&hide_border=true&bg_color=1a1a2e&color=f39c12&line=f39c12&point=ffffff"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mashcim&theme=radical&hide_border=true&bg_color=1a1a2e&color=f39c12&line=f39c12&point=ffffff&branch=main"/>
 </div>
-
 ---
 
 *"In the world of cybersecurity, the best defense is a good offense."*
